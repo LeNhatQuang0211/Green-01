@@ -1,7 +1,8 @@
 
+import { Routes, Route } from "react-router-dom";
+import Organizations from "./pages/Organizations";
+import Users from './pages/Users';
 import './App.css';
-import HomeTest05 from './components/HomeTest05';
-
 
 
 
@@ -18,8 +19,13 @@ function App() {
             </div>
       </header>
       <main>
-         <div className='container'>
-           <HomeTest05 />
+         <div className='container App'>
+         <Routes>
+            <Route path="/organizations" element={<Organizations />} />
+            <Route path="/users" element={<Users />} />
+            
+          </Routes>
+          
           </div>
       </main>
       
