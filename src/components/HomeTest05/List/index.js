@@ -13,15 +13,14 @@ const List = ({list, onView, onDelete, onEdit}) => {
                             </main>
                             
                             <footer>
-                                <div>
-                                <button className='btn btn-secondary btn-sm' onClick={() => {
-                                    onDelete(item.id)}}>Delete</button>
-                            </div>
                             <div>
-                            <button className='btn btn-sm' onClick={() => {
+                            <button className='btn btn-secondary btn-sm mx-3' onClick={() => {
+                                    onDelete(item.id)}}>Delete</button>
+
+                            <button className='btn btn-danger btn-sm mx-3' onClick={() => {
                                     onView(item.id)}}>View</button>
 
-                                <button className='btn btn-sm' onClick={() => {
+                                <button className='btn btn-info btn-sm mx-3' onClick={() => {
                                     onEdit(item)}}>Edit</button></div>
                             </footer>
                             
