@@ -3,7 +3,8 @@ import Form from "./Form";
 import List from "./List";
 import './style.css'
 import { getUsers, createUser, editUser, deleteUser } from '../../apis/users'
-
+// import { getOrganizations, createOrganization, editOrganization, deleteOrganization } from "../../apis/organizations";
+import ModalView from "./ModalView";
 
 // Một mảng object
 // có một form để nhập id, name và phone
@@ -49,7 +50,7 @@ const validate = (list, data) => {
 
 const HomeTest05 = () => {
     
-    
+    const [selectedId, setSelectedId] = useState([])
     const [data, setData] = useState (DEFAULT_FORM_DATA)
     const [search, setSearch] = useState ('')
     const [list, setList] = useState ([ ])
@@ -135,7 +136,12 @@ const HomeTest05 = () => {
         modal.show();
     }
 
-
+    const onView = id => {
+        setSelectedId(id)
+        const element = document.querySelector('#modal-view-user')
+        const modal = window.bootstrap.Modal.getOrCreateInstance(element);
+        modal.show();
+    }
 
 
     const onDelete = (id) => {
@@ -182,19 +188,23 @@ const HomeTest05 = () => {
                 </div>
                 
             </header>
-                <Form 
-                 data = {data}
-                 error={error}
-                 onSubmit={onSubmit}
-                 onChange={onChange}/>
+                
                  {resultList.length === 0 && (
                      <div>No Data found</div>
                  )}
 
                 < List 
                 list={resultList}
+                onView={onView}
                 onDelete={onDelete}
                 onEdit={onEdit} />
+
+                <Form 
+                 data = {data}
+                 error={error}
+                 onSubmit={onSubmit}
+                 onChange={onChange}/>
+                 <ModalView id={selectedId} />
             </div>
         
         </div>
