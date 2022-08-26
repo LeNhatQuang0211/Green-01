@@ -1,6 +1,7 @@
 import {useState, useMemo, useEffect} from "react";
 import Form from "./Form";
 import List from "./List";
+import { Link } from 'react-router-dom';
 import './style.css'
 import { getUsers, createUser, editUser, deleteUser } from '../../apis/users'
 // import { getOrganizations, createOrganization, editOrganization, deleteOrganization } from "../../apis/organizations";
@@ -129,12 +130,7 @@ const HomeTest05 = () => {
         modal.hide();
         }
     }
-    const onCreate = () => {
-        setData(DEFAULT_FORM_DATA)
-        const element = document.querySelector('#modal-form-user')
-        const modal = window.bootstrap.Modal.getOrCreateInstance(element);
-        modal.show();
-    }
+    
 
     const onView = id => {
         setSelectedId(id)
@@ -182,9 +178,12 @@ const HomeTest05 = () => {
                     <input className='form-control' value={search} placeholder='Type to search...' onChange={onSearch} />
                 </div>
                 <div className="col-2">
-                    <button type="button" className="btn btn-primary" onClick={onCreate}>
+                    <Link to="/user/create">
+                       <button type="button" className="btn btn-primary">
                     Create
-                    </button>
+                    </button> 
+                    </Link>
+                    
                 </div>
                 
             </header>

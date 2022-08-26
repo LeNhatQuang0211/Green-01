@@ -1,5 +1,7 @@
+
+import { Link } from 'react-router-dom';
 import './style.css'
-const List = ({list, onView, onDelete, onEdit}) => {
+const List = ({list, onView, onDelete}) => {
 
     return (
         <div className='row'>
@@ -20,8 +22,12 @@ const List = ({list, onView, onDelete, onEdit}) => {
                             <button className='btn btn-danger btn-sm mx-3' onClick={() => {
                                     onView(item.id)}}>View</button>
 
-                                <button className='btn btn-info btn-sm mx-3' onClick={() => {
-                                    onEdit(item)}}>Edit</button></div>
+                            <Link to={`/user/${item.id}/edit`}>
+                                <button className='btn btn-info btn-sm mx-3'>Edit</button>
+                            </Link>
+                            </div>
+                            
+                                
                             </footer>
                             
 
