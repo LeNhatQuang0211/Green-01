@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import './style.css'
-const List = ({list, onView, onDelete}) => {
+const List = ({list, onDelete}) => {
 
     return (
         <div className='row'>
@@ -19,8 +19,9 @@ const List = ({list, onView, onDelete}) => {
                             <button className='btn btn-secondary btn-sm mx-3' onClick={() => {
                                     onDelete(item.id)}}>Delete</button>
 
-                            <button className='btn btn-danger btn-sm mx-3' onClick={() => {
-                                    onView(item.id)}}>View</button>
+                            <Link to={`/user/${item.id}`}>
+                                <button className='btn btn-danger btn-sm mx-3'>View</button>
+                            </Link>
 
                             <Link to={`/user/${item.id}/edit`}>
                                 <button className='btn btn-info btn-sm mx-3'>Edit</button>

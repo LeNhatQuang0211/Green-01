@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Organizations from "./pages/Organizations";
 import Users from './pages/Users';
 import CreateUser from "./pages/CreateUser";
+import ViewUser from "./pages/ViewUser";
 import EditUser from "./pages/EditUser";
 import './App.css';
 
@@ -36,7 +37,9 @@ function App() {
             <Route path="/organizations" element={<Organizations />} />
             <Route path="/users" element={<Users />} />
             <Route path="/user/create" element={<CreateUser />} />
+            <Route path="/user/:id" element={<ViewUser />} />
             <Route path="/user/:id/edit" element={<EditUser />} />
+
           </Routes>
           
           </div>

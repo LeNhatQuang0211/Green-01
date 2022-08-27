@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import FormUser from '../../components/FormUser';
 import { createUser } from '../../apis/users'
+import FormUser from '../../components/FormUser';
+
 
 const DEFAULT_FORM_DATA = { name: '', email: '' }
 

@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-
+import { Link } from 'react-router-dom'
 const Form = ({data, onSubmit, onChange}) => {
 
 
@@ -21,8 +21,11 @@ const Form = ({data, onSubmit, onChange}) => {
                     <label htmlFor="form-name" className="form-label">Email</label>
                     <input type="email" name="email" className="form-control" value={data.email} id="form-email" placeholder="name@example.com" onChange={onChange}/>
                 </div>
-            
+
+            <Link to="/users">
             <button className="btn btn-secondary">Back</button>
+            </Link>
+            
             <button className="btn btn-primary" disabled={disabled} onClick={onSubmit}>Submit</button>
         </div>
         

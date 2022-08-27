@@ -1,14 +1,14 @@
-.user {
+.organizations {
     border: 1px solid #eeeeee;
     border-radius: 10px;
     padding: 16px;
     margin: 12px 0px;
     
 }
-.user-main {
+.organizations-main {
     margin-bottom: 8px;
     background-color: aquamarine;
 }
-.user-footer {
+.organizations-footer {
    margin-right: 8px;
 }

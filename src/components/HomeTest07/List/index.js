@@ -5,14 +5,14 @@ const List = ({list, onView, onDelete, onEdit}) => {
         <div className='row'>
             {list.map((item) => {
                 return (
-                    <div key={item.id} className='user col-4'>
-                        <div className='user'>
-                            <main className='user-main'>
+                    <div key={item.id} className='organizations col-4'>
+                        <div className='organizations'>
+                            <main className='organizations-main'>
                                 <h6>Name:{item.name}</h6>
-                                <h6>Email:{item.email}</h6>
+                                
                             </main>
                             
-                            <footer>
+                            <footer className='organizations-footer'>
                             <div>
                             <button className='btn btn-secondary btn-sm mx-3' onClick={() => {
                                     onDelete(item.id)}}>Delete</button>

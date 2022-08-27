@@ -17,11 +17,11 @@ import ModalView from "./ModalView";
 
 
 
-const DEFAULT_FORM_DATA = { name: '', email: '' }
+const DEFAULT_FORM_DATA = { name: ''}
 
 const validate = (list, data) => {
     console.log(data)
-        if (data.name === '' || data.email === '') {
+        if (data.name === '') {
             return false
         }
 
@@ -30,7 +30,7 @@ const validate = (list, data) => {
             //  -> sau đó (return 2): nếu newItem phù hợp với điều kiện đã cho thì newItem có giá trị trùng thì sẽ là false(k cho submit)  
             // ngược lại là không có giá trị trùng thì sẽ là true(được submit)
             const newItem = list.find((item) => {
-                return item.name === data.name || item.email === data.email
+                return item.name === data.name
             })
             return newItem ? false : true
         }
@@ -39,7 +39,7 @@ const validate = (list, data) => {
         // validate nút Edit: kiểm tra trùng ở nút Edit
         if (data.id) {
             const newItem = list.find((item) => {
-                return item.id !== data.id && (item.name === data.name || item.email === data.email)
+                return item.id !== data.id && (item.name === data.name)
             })
             return newItem ? false : true
         }
@@ -65,7 +65,7 @@ const HomeTest07 = () => {
     const resultList = useMemo(() => {
         if(search) {
             const newResultList = list.filter((item) => {
-            return item.name.includes(search) || item.email.includes(search)
+            return item.name.includes(search)
         })
         return  newResultList
         } 
@@ -124,21 +124,21 @@ const HomeTest07 = () => {
             })
            
         }
-        const element = document.querySelector('#modal-form-user')
+        const element = document.querySelector('#modal-form-organizations')
         const modal = window.bootstrap.Modal.getOrCreateInstance(element);
         modal.hide();
         }
     }
     const onCreate = () => {
         setData(DEFAULT_FORM_DATA)
-        const element = document.querySelector('#modal-form-user')
+        const element = document.querySelector('#modal-form-organizations')
         const modal = window.bootstrap.Modal.getOrCreateInstance(element);
         modal.show();
     }
 
     const onView = id => {
         setSelectedId(id)
-        const element = document.querySelector('#modal-view-user')
+        const element = document.querySelector('#modal-view-organizations')
         const modal = window.bootstrap.Modal.getOrCreateInstance(element);
         modal.show();
     }
@@ -161,7 +161,7 @@ const HomeTest07 = () => {
     
     const onEdit = (data) => {
         setData(data)
-        const element = document.querySelector('#modal-form-user')
+        const element = document.querySelector('#modal-form-organizations')
         const modal = window.bootstrap.Modal.getOrCreateInstance(element);
         modal.show();
     }
